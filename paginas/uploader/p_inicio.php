@@ -46,9 +46,9 @@ $formatos=$bd->doFullSelect("formatos");
                      <div class="col-xs-12 hidden-sm"><br></div>
                     <div class="col-xs-12">
                          <span>Moneda</span> <select name="moneda_id" id="moneda_id">
-                             <option value="1">Pesos</option>
+                             <option value="1">&#36;COP</option>
                              <option value="2">&#8364; Euros</option>
-                             <option value="3">&#36; Dolares</option>
+                             <option value="3">&#36; USD</option>
 
                          </select> 
 

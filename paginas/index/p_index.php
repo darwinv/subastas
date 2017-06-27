@@ -30,14 +30,29 @@ if(isset($_SESSION["id"])){
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="height:400px;overflow-y:auto;">
         <?php
-        foreach ($result as $r=>$valor):		
+        foreach ($result as $r=>$valor):	
+        switch ($valor['moneda_id']) {
+        	case 1:
+        		$moneda='&#36; COP';
+        		break;
+        	case 2:
+        		$moneda='&#8364;';
+        		break;	
+        	case 3:
+        		$moneda='&#36; USD';
+        		break;	
+        	
+        	default:
+        		# code...
+        		break;
+        }
             ?>
             <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 pad5">				
 				<img class="img-top" src="<?php echo $valor["ruta"];?>"/>
                 <br>
 				<div style="padding-left:10px;">
 					<span><?php echo $valor["titulo"];?></span><br>
-					<span><?php echo $valor["precioa"]>$valor["precioi"]?number_format($valor["precioa"],2,',','.'):number_format($valor["precioi"],2,',','.');?> $</span>
+					<span><?php echo $valor["precioa"]>$valor["precioi"]?number_format($valor["precioa"],2,',','.'):number_format($valor["precioi"],2,',','.') . ' '.$moneda ?> </span>
 					<br>
 					<?php
 					if(isset($_SESSION["id"])):
