@@ -1,6 +1,7 @@
 <?php if(!isset($_SESSION)){
     session_start();
 }
+var_dump($_SESSION["tipos_usuarios_id"]);
 ?>
 <nav class="navbar navbar-inverse navbar-static-top" role="navigation ">
 	<div class="container">
@@ -30,10 +31,12 @@
 					<li class="menu" id="menupoliticas"><a class="marT10" href="politicas">
 						Politicas y condiciones
 					</a></li>
-					<div class="vertical-line " style="height: 25px; margin-top: 15px;"></div>
-					<li class="menu" id="menupublicar"><a class="marT10" href="uploader">
-						Publicar
-					</a></li>
+					<?php if(($_SESSION["tipos_usuarios_id"]=='1')){ ?>
+						<div class="vertical-line " style="height: 25px; margin-top: 15px;"></div>
+						<li class="menu" id="menupublicar"><a class="marT10" href="uploader">
+							Publicar
+						</a></li>
+					<?php } ?>
 <!--					<div class="vertical-line " style="height: 25px; margin-top: 15px;"></div>-->
 					<li class="marT10 hidden-xs hidden-sm">
 						<div class="borderS  point eti-blanco " style="display: flex; height: 40px; width: 40px; align-items: center;">

@@ -1,0 +1,6 @@
+RewriteEngine on
+RewriteRule ^/?(contactenos|quienessomos|index|politicas|uploader|registro|moves)$ $1.php [S=1]
+
+
+RewriteRule ^/?(subasta)/(\w+)/?$ clientes.php?id=$1
+#RewriteRule ^/?(index|favoritos|terminos|listado|resumen|compras|ventas|configuracion|salir|publicar|restablecer|estadisticas|carloshumberto|verificate|checkout)$ $1.php [S=1]

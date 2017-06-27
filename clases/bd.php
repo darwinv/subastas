@@ -14,8 +14,8 @@ class bd extends PDO {
 	private $host = "localhost";
 	private $bd_name = "plotterb_subastas";
 	private $bd_charset = "latin1";
-	private $user = "plotterbarato";
-	private $password = "3Xvpc8w4";
+	private $user = "root";
+	private $password = "";
 	private $options = array (
 			PDO::ATTR_EMULATE_PREPARES => true,
 			PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
