@@ -1,0 +1,6 @@
+<p>Nuestro equipo de trabajo esta divido en los departamentos de desarrollo, dise&ntilde;o gr&aacute;fico, 
+   planificaci&oacute;n, administraci&oacute;n, docencia y soporte. En cada uno de estos departamentos
+   trabajan personas comprometidas con la empresa y con nuestros clientes con alto sentido social.
+</p>								
+<p>Actualmente nuestras oficinas est&aacute;n ubicadas en el estado T&aacute;chira, sin embargo,
+   por la naturaleza de nuestros servicios atendemos clientes en cualquier parte del pa&iacute;s.</p>

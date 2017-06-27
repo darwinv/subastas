@@ -1,0 +1,11 @@
+<p>Somos un grupo de profesionales en diversas &aacute;reas relacionadas con tecnolog&iacute;a
+   y dise&ntilde;o gr&aacute;fico que ofrecemos a nuestros clientes servicios de desarollo web,
+   ecomerce, aplicaciones m&oacute;viles, dise&ntilde;o gr&aacute;fico y formaci&oacute;n y
+   capacitaci&oacute;n tecnol&oacute;gica a precios bajos y con el m&aacute;s sentido social.
+</p>						
+<p>En <strong>SISTEMA CALDERON</strong> no nos limitamos al dise&ntilde;o y desarrollo de su proyecto 
+           sino que nuestro equipo de trabajo brinda a nuestros clientes soporte y acompa&ntilde;amiento
+	   para que su experiencia con nuestros productos sea la mejor, en tal sentido, en <strong>
+	   SISTEMA CALDERON </strong> no le garantizamos que no se presentaran problemas, lo que le
+	   garantizamos es que siempre contara con nosotros para asesorarle.
+</p>

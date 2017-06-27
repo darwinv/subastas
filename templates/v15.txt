@@ -1,0 +1,4 @@
+<img src="galeria/telefono.jpg" /> 0276-651.81.67 / 0416-1793965<br><br>
+<a href="mailto:admin@sistemacalderon.com.ve" target="_blank"><img src="galeria/email.jpg" /> admin@sistemacalderon.com.ve</a><br><br>
+<a href="http://www.facebook.com/sistemacalderon" target="_blank"><img src="galeria/facebook.jpg" /> facebook.com/sistemacalderon</a><br><br>
+<a href="http://www.twitter.com/sistemacalderon" target="_blank"><img src="galeria/twitter.jpg" style="border-radius:10px;"/> twitter.com/sistemacalderon</a><br><br>
