@@ -5,6 +5,9 @@ if(!isset($_SESSION)){
 if(!isset($_SESSION["id"])){
     header("Location: index.php");
 }
+if(!($_SESSION["tipos_usuarios_id"]=='1')){ //solo admin
+	header("Location: index.php");
+}
 include "fcn/incluir-css-js.php";
 ?>
 <!DOCTYPE html>

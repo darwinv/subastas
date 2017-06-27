@@ -102,6 +102,7 @@ class usuario {
 			$_SESSION["id"] = $result["usuarios_id"];
 			$_SESSION["seudonimo"] = $result["seudonimo"];
 			$_SESSION["fotoperfil"] = $foto->buscarFotoUsuario($result["usuarios_id"]);
+			$_SESSION["tipos_usuarios_id"] = $result["tipos_usuarios_id"];
 			return true;
 		}else{
 			return false;
