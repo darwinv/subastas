@@ -2,6 +2,7 @@
 include_once "../../../clases/usuarios.php";
 include_once "../../../clases/fotos.php";
 include_once "../../../clases/bd.php";
+include_once "../../../clases/email.php";
 $metodo=filter_input(INPUT_POST,"metodo");
 if(!$metodo)
 	return;
@@ -11,6 +12,7 @@ function registrar(){
 	$usuario=new usuario();
 	$bd=new bd();
 	$foto=new fotos();
+	$correo=new email();
 	$seudonimo = filter_input (INPUT_POST, "seudonimo" );
 	if ($bd->valueExist ( $usuario->a_table, $seudonimo, "seudonimo" )) {
 		$fields ["seudonimo"] = "El seudonimo no esta disponible";
@@ -56,12 +58,18 @@ function registrar(){
 	$bd->doInsert("usuarios",$valores);
     $nuevoId=$bd->lastInsertId();
 	$hash = hash("sha256", $password);
-	$bd->doInsert("usuariosxstatus",array("fecha"=>date("Y-m-d H:i:s",time()),"status_usuarios_id"=>1,"usuarios_id"=>$nuevoId));
+	$bd->doInsert("usuariosxstatus",array("fecha"=>date("Y-m-d H:i:s",time()),"status_usuarios_id"=>4,"usuarios_id"=>$nuevoId));
 	$bd->doInsert("usuarios_accesos",array("usuarios_id"=>$nuevoId,"password"=>$hash,"email"=>$email,"seudonimo"=>$seudonimo));
+	
+	$link=$usuario->generaLinkConfirmarCuenta($nuevoId,$email);
+
 	$foto->crearFotoUsuario($nuevoId, filter_input(INPUT_POST,"foto"));
-	$usuario->ingresoUsuario(array(
-			"seudonimo" => filter_input ( INPUT_POST, "seudonimo" )
-	), filter_input ( INPUT_POST, "password" ) );
+	
+	if($link){
+		$correo->sendConfirmarCuenta($email,$link);
+	}
+	
+
 	echo json_encode ( array (
 			"result" => "ok" 
 	) );	

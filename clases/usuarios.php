@@ -40,6 +40,13 @@ class usuario {
 	private $i_ip;
 	private $i_datos_cliente;
 
+	//Confirmar Cuenta
+	protected $c_table="confirmar_cuenta";
+	private $c_id_usuario;
+	private $c_correo;
+	private $c_token;
+	private $c_creado;
+
 	/* * * * * * * * * * * * * * * * * * * * * * *
 	 * ===========--- Contructor ---============ *
 	 * * * * * * * * * * * * * * * * * * * * * * */
@@ -95,9 +102,14 @@ class usuario {
 			$condicion = "email = '{$login["email"]}'";
 		}
 		$hash = hash ( "sha256", $password );
-		$condicion = "$condicion AND password = '$hash'";
+		$condicion = "$condicion AND password = '$hash' ";
 		$result = $bd->doSingleSelect($this->a_table,$condicion);
-		if(!empty($result)){
+		$id=$result["usuarios_id"];		
+
+		$result2=$bd->doSingleSelect($this->s_table,"usuarios_id = $id");
+		$status=$result2["status_usuarios_id"];
+
+		if(!empty($result) and $status==1){
 			session_start();
 			$_SESSION["id"] = $result["usuarios_id"];
 			$_SESSION["seudonimo"] = $result["seudonimo"];
@@ -202,6 +214,46 @@ class usuario {
 		$this->a_email = $email;
 		$this->a_password = hash ( "sha256", $password );
 	}
+	
+
+function generaLinkConfirmarCuenta($iduser,$correo){
+		$bd = new bd();
+		$cadena=$correo.rand(1,99999).date('Y-m-d');
+		$token=sha1($cadena);
+		$this->c_id_usuario=$iduser;
+		$this->c_correo=$correo;
+		$this->c_token=$token;
+		$this->c_creado=date("Y-m-d H:i:s",time());	
+		$result=$bd->doInsert($this->c_table, $this->serializarDatos ( "c_" ));	
+
+		if($result==true){
+     		 // Se devuelve el link que se enviara al usuario
+	      		$enlace = $_SERVER["SERVER_NAME"].'/subastas/confirmar.php?idusuario='.$iduser.'&token='.$token;
+		      return $enlace;
+	   	}
+   		else {
+   			return FALSE;
+   		}     
+	}
+
+function comprobarToken($token){
+		$bd = new bd();
+		$result=$bd->doSingleSelect($this->c_table,"token = '$token'");
+	
+		if($result)
+			return $result;
+		else 
+			return false;
+	}	
+
+public function setStatusActivo($iduser){
+		$bd = new bd();
+		$condicion="usuarios_id=$iduser";		
+		$actualizar=array( 'status_usuarios_id'=>1);		
+		$result=$bd->doUpdate($this->s_table, $actualizar, $condicion);	
+		//var_dump($result);
+}
+
 	public function datosStatus($fecha = NULL, $status_usuarios_id = NULL) {
 		if(!is_null($fecha)){
 			$this->s_fecha = $fecha;
@@ -211,7 +263,7 @@ class usuario {
 		if(!is_null($status_usuarios_id)){
 			$this->s_status_usuarios_id = $status_usuarios_id;
 		}else{
-			$this->s_status_usuarios_id = 1;
+			$this->s_status_usuarios_id = 4;
 		}
 	}
 	/*Se puede borrar*/

@@ -236,6 +236,7 @@ function newUser() {
 		$usuario->datosUsuario ( $nombres, $apellidos, $regiones_id, $direccion, $genero, $dianac, $mesnac,$agnonac);
 		$usuario->datosAcceso ( $seudonimo, $email, $password );
 		$usuario->datosStatus ();
+
 		$valores=array(
 			"nombres"=>$nombres,
 			"apellidos"=>$apellidos,
@@ -253,6 +254,8 @@ function newUser() {
 		$bd->doInsert ( "usuarios_accesos",array("usuarios_id"=>$nuevoId,"password"=>$hash,"email"=>$email,"seudonimo"=>$seudonimo));
 //		$usuario->crearUsuario ($nuevoId);
 //		$usuario->id=$nuevoId;
+		
+	
 		$foto->crearFotoUsuario ( $nuevoId, filter_input(INPUT_POST,"foto"));
 		$usuario->ingresoUsuario ( array (
 				"seudonimo" => filter_input(INPUT_POST, "seudonimo" )),

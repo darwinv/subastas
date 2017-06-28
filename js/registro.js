@@ -60,12 +60,12 @@ moduleApp.controller("RegistrarController", function($scope,httpService) {
 				console.log(data);
 				swal({
 					title: "Bienvenido", 
-					text: "Seras redireccionado en 2 segundos.",
+					text: "Revisa tu correo, Deberas confirmar tu cuenta .",
 					imageUrl: "galeria/img/logos/bill-ok.png",
-					timer: 2000, 
+					timer: 4000, 
 					showConfirmButton: true
 				},function(){			
-					window.open("index","_self");
+				window.open("index","_self");
 				});
 			},
 			error:function(xhr){
