@@ -27,12 +27,13 @@ $formatos=$bd->doFullSelect("formatos");
                     <div class="col-xs-12 hidden-sm"><br></div>
                     <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2"><span>Descripci&oacute;n</span></div>
                     <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                        <textarea class="form-textarea" id="txtdescripcion" name=txtdescripcion" rows="2" placeholder="Una clara introducci&oacute;n del art&iacute;culo"></textarea>
+                        <textarea class="form-textarea" id="txtdescripcion" name="txtdescripcion" rows="2" placeholder="Una clara introducci&oacute;n del art&iacute;culo"></textarea>
                     </div>
                     <div class="col-xs-12 hidden-sm"><br></div>
 					<div class="col-xs-12">
 						<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2"><span>Precios y fecha</span></div>					
-						<div class="col-xs-12 col-sm-3">
+						
+                        <div class="col-xs-12 col-sm-3">
 							<input type="text" id="txt-precioI" name="txt-precioI" class="form-input" placeholder="Precio inicial"></input>
 						</div>
 						<div class="col-xs-12 col-sm-3">						
@@ -42,6 +43,16 @@ $formatos=$bd->doFullSelect("formatos");
 							<input type="date" id="txt-fecha-limite" name="txt-fecha-limite" class="form-input" placeholder="Fecha limite"></input>
 						</div>
 					</div>
+                     <div class="col-xs-12 hidden-sm"><br></div>
+                    <div class="col-xs-12">
+                         <span>Moneda</span> <select name="moneda_id" id="moneda_id">
+                             <option value="1">&#36;COP</option>
+                             <option value="2">&#8364; Euros</option>
+                             <option value="3">&#36; USD</option>
+
+                         </select> 
+
+                         </div>
                     <div class="col-xs-12 hidden-sm"><br></div>                    
                     <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
 						<span>Foto</span>

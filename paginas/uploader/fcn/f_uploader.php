@@ -39,6 +39,7 @@ function guardarRecurso(){
                        "ruta"=>filter_input(INPUT_POST,"filename")?filter_input(INPUT_POST,"filename"):NULL,
                        "fecha"=>$tiempo,
                        "status"=>1,
+                       "moneda_id"=>filter_input(INPUT_POST,"moneda_id"),
                        "mensajes_contactos_id"=>$nuevoID
                       );
         $result+=$bd->doInsert("recursos",$valores);

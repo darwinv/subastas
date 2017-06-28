@@ -14,6 +14,21 @@
 <body class="pad-body">
 <?php
 	include "temas/header.php";
+	switch ($recurso->r_moneda_id) {
+			case 1:
+        		$moneda='&#36; COP';
+        		break;
+        	case 2:
+        		$moneda='&#8364;';
+        		break;	
+        	case 3:
+        		$moneda='&#36; USD';
+        		break;	
+        	
+        	default:
+        		# code...
+        		break;
+	}
 ?>
 
  
@@ -569,17 +584,17 @@ div.addonno{ background: url('#.ir.ebaystatic.com/cr/v/c1/addonwrty.png') no-rep
 			
 				<div>
 					<span><strong>Precio Inicial:</strong></span> 
-					<span><?php echo $recurso->r_precioi;?></span>$
+					<span><?php echo $recurso->r_precioi;?></span> <?php echo $moneda ;?> 
 				</div>
 
 				<div>
 					<span><strong>Precio Limite:</strong></span> 
-					<span><?php echo $recurso->r_preciol;?></span>$
+					<span><?php echo $recurso->r_preciol;?></span><?php echo $moneda ;?>
 				</div>
 
 				<div>
 					<span><strong>Mejor Oferta:</strong></span> 
-					<span><?php echo $recurso->r_precioa;?></span>$
+					<span><?php echo $recurso->r_precioa;?></span><?php echo $moneda ;?>
 				</div>
 				<hr>
 				<div>

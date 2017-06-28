@@ -25,6 +25,7 @@ class recursos{
 	private $r_ruta;
 	private $r_fecha;
 	private $r_status;
+	private $r_moneda_id;
 	public function recursos($id = NULL){
 		if(!is_null($id)){
 			$this->buscarRecurso($id);
@@ -54,6 +55,7 @@ class recursos{
 			$valores["r_ruta"] = $result["ruta"];
 			$valores["r_fecha"] = $result["fecha"];
 			$valores["r_status"] = $result["status"];
+			$valores["r_moneda_id"] = $result["moneda_id"];
 			$this->setRecurso($valores);
 			return true;
 		}else {
